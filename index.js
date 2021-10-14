@@ -241,7 +241,7 @@ class ProjectManager extends Instructor {
      return `${this.name} announces to ${channel}, @channel standy times!`;
    }
 
-   debugCode(student, subject) {
+   debugsCode(student, subject) {
      return `${this.name} debugs ${student}'s code on ${subject}`;
    }
 }
@@ -250,7 +250,7 @@ const helper = new ProjectManager({name: `Helper`, age: 27, location: `Outer Spa
 console.log(helper);
 console.log(helper.grade('Amethyst', 'CSS'));
 console.log(helper.standUp('web49'));
-console.log(helper.debugCode('Amethyst', 'JavaScript'));
+console.log(helper.debugsCode('Luke', 'JavaScript'));
 
 /*
   STRETCH PROBLEM (no tests!)
