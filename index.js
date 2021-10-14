@@ -199,7 +199,7 @@ class Student extends Lambdasian {
   }
 
   listSubjects() {
-    return `Loving ${this.favSubjects.join(', ')}!`
+    return `Loving ${this.favSubjects.join(', ')}!`;
   }
 
   PRAssignment(subject) {
@@ -230,9 +230,28 @@ console.log(amyStudent.sprintChallenge('classes'));
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-   
+class ProjectManager extends Instructor {
+   constructor(attrs) {
+     super(attrs);
+     this.gradClassName = attrs.gradClassName;
+     this.favInstructor = attrs.favInstructor;
+   }
+
+   standUp(channel) {
+     return `${this.name} announces to ${channel}, @channel standy times!`;
+   }
+
+   debugCode(student, subject) {
+     return `${this.name} debugs ${student}'s code on ${subject}`;
+   }
 }
+
+const helper = new ProjectManager({name: `Helper`, age: 27, location: `Outer Space`, gradClassName: `Web 49`, favInstructor: `Brit`, specialty: `Javascript`, favLanguage: `Javascript`, catchPhrase: `Cowabummer dude`});
+console.log(helper);
+console.log(helper.grade('Amethyst', 'CSS'));
+console.log(helper.standUp('web49'));
+console.log(helper.debugCode('Amethyst', 'JavaScript'));
+
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
