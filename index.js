@@ -82,8 +82,33 @@ console.log(sonic);
 */
 
 class Car {
-  
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+
+  fill(gallons) {
+    this.tank = this.tank + gallons;
+  }
+
+  drive(distance) {
+    if ((this.tank - (distance / this.milesPerGallon)) >= 0) {
+      this.odometer = this.odometer + distance;
+      this.tank = this.tank - (distance / this.milesPerGallon);
+    } else {
+      for (let i = 0; i < (this.tank - (distance / this.milesPerGallon)); i++) {
+        this.odometer++
+      }
+    }
+  }
 }
+
+const batmobile = new Car('Bat Mobile', 5);
+batmobile.fill(10);
+batmobile.drive(100);
+console.log(batmobile);
 
 /*
   TASK 3
